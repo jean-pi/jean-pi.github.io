@@ -22,12 +22,15 @@ $ mkdir {name} // crear una carpeta
 $ git init // iniciar un repositorio git (la carpeta esta oculta [nombreDeCarpeta/.git])
 $ ls -a // muestra los archivos y los archivos ocultos
 $ code . //abre el editor de codigo en la carpeta actual
+
 $ git status
 $ git add {nombreDelArchivo} {otroArchivo} || {.}  //el punto agrega todo
 // agregar archivos a ETAPA DE STAGE
 // buena practica solo pasar a stage los archivos modificados
+
 $ git commit -m "commit inicial"  //guardar una lista de cambios (commit:comprometer)
-// cuanto se haga un commit no aparecera ningun archivo con $ git status ya que no ningun cambio en el stage
+// cuanto se haga un commit no aparecera ningun archivo con $ git status ya que no ningun cambio en el stage($ git add {})
+$ git commit  //se abrira el editor de texto ahi se peude escribir una descripcion en la primera linea
 
 
 
