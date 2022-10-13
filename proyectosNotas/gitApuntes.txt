@@ -26,6 +26,8 @@ $ git status
 $ git add {nombreDelArchivo} {otroArchivo} || {.}  //el punto agrega todo
 // agregar archivos a ETAPA DE STAGE
 // buena practica solo pasar a stage los archivos modificados
+$ git commit -m "commit inicial"  //guardar una lista de cambios (commit:comprometer)
+// cuanto se haga un commit no aparecera ningun archivo con $ git status ya que no ningun cambio en el stage
 
 
 
