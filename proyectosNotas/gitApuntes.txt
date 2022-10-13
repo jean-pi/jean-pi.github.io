@@ -13,6 +13,14 @@ $ git config -h  // opciones configuracion
  2-commit: $ git commit {} // una vez que este en stage todo los cambios que quiero subir se hace un commit
  3-server: $git push // subir a un server el commit
 
+ --ramas
+ // se crear una rama para trabajar aparte y una vez que el codigo este probado y terminado
+ se hace un  MERCH para unir esa rama a la principal
+ $ git branch // rama actual de TRABAJO
+ $ git checkout -b rama1 // crear rama y cambiarse a esa rama
+// solo se hace el commit en la rama en la que estoy si cambio de rama y veo otra vez el codigo con $ cat {}
+// no aparece el cambio
+
 $ ls //todas las carpetas
 $ pwd // en que carpeta estoy
 // tecla tab para completar el nombre del directorio
@@ -23,15 +31,42 @@ $ git init // iniciar un repositorio git (la carpeta esta oculta [nombreDeCarpet
 $ ls -a // muestra los archivos y los archivos ocultos
 $ code . //abre el editor de codigo en la carpeta actual
 
+
+//STAGE
 $ git status
+$ git status -s //forma diferende de mostar los modificados
+$ git diff // muestra exactamente las lineas eliminadas y lo agregadas que aun no estan en stage (q para salir)
+$ git diff --staged // lo mismo anterior pero solo lo que tengo en stage
+// cuando se hace un salto de linea se vuelve a rescribir una liena ya que se agrega un caracter invisible de salto de linea a
 $ git add {nombreDelArchivo} {otroArchivo} || {.}  //el punto agrega todo
 // agregar archivos a ETAPA DE STAGE
 // buena practica solo pasar a stage los archivos modificados
+$ git restored --staged {} // se quita del stage
 
+//COMMIT
 $ git commit -m "commit inicial"  //guardar una lista de cambios (commit:comprometer)
 // cuanto se haga un commit no aparecera ningun archivo con $ git status ya que no ningun cambio en el stage($ git add {})
 $ git commit  //se abrira el editor de texto ahi se peude escribir una descripcion en la primera linea
+$ git log --oneline o $ git log // muestra historial de commits y info (se lase con que)
+
+//que hacer cuando se borran archivos
+$ rm {} // borrar un archivo
+// si se hace un $ git status se podra ver los elementos eliminados y hay que subirlos a stage con $ git add {}
+// hacer un commit especificando que se elimino $ git commit -m "se borro .vsCode"
+
+//restaurar un archivo eliminado o deshacer una modificacion
+$ git restore {} // solo funciona cuando el cambio aun aparece en el $ git status    deleted: archivo.js o
 
 
+//CAMBIAR DE NOMBRE
+$ vm {nombredearchivo.txt} {nuevoNombredearchivo.txt} // cambia de nombre a un archivo
+$ git add {nombredearchivo.txt} {nuevoNombredearchivo.txt} 
+// se sube a stage la modificacion del nombre de un archivo
+$ git vm {nombredearchivo.txt} {nuevoNombredearchivo.txt} //cambia de nombre y sube a stage(resume lo anterior)
 
+
+//IGNORAR ARCHIVOS
+.gitingnore // carpeta se debe agregar las rutas a IGNORAR
+// las rutas dentro de este no se veran en los cambios 
+// hay que subir el .gitingnore add y commit
 
