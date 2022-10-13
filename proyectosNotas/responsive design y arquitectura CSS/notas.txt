@@ -1,0 +1,42 @@
+1.-La Cáscada
+2.-La Especificidad
+3.-La Herencia
+
+Navegadores de Microsoft -ms-
+Firefox -moz-
+Todos los demás navegadores -webkit-
+
+
+APRENDER
+1.tipos de medidas css
+2.funciones css: calc(), min() max(), clamp(),ulr()
+4. > que es esto en css?    >*::placeholder {}    >*[required]:invalid
+5.animaciones y transiciones css
+6.object fit
+7.propiedades del background
+
+JERARQUIA DE SELECTORES
+1. h1
+10. .clases
+100. #id
+
+
+para paginas que se van a imprimir cs,mm,in
+em,rem,ex para tamaño de fuentes, MEJOR ES EL REM
+o para margin o paddings REM
+
+
+
+
+-----------------------------------------------------SASS---------------------------------------------
+// en sass hay
+//  variables - mapas - listas
+// @Funciones - @each - @if - @for - while
+// %Placeholders - @mixin
+// selector padre: & - crear clases: .#{Lista o mapa con @each} - nth-child(#{valores iterados})
+// @extend - sirve para extender clases, si hay elementos globales se los crea aqui y se extiende la clase
+//   | background: rgb($color,1.5) esto cambia la opacidad
+//   | darkern($color: $colorVariable, $amount:10) $amount es la cantidad de oscuridad
+//   | lighten($color: $colorVariable, $amount:10) $amount es la cantidad de claridad
+//   | mix($colorVariable, #fff) mescla los dos colores (esto es unico creo no creo que se use mucho)
+//   | scale-color($color: $colorVariable, saturacion: 20%, lightness: 60%) 

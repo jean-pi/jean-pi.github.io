@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="assets/logoTerminal.svg" />
+    <title>Ejercicios DOMs</title>
+    <link rel="stylesheet" href="global-Styles/css/normalize.css">
+    <link rel="stylesheet" href="global-Styles/css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined">
+</head>
+<body class="theme">
+    <header class="header">
+            <div class="header-btnHamburguer">
+                <rect class="header-btnHamburguer-rect" id="menuLateralActive">
+                    <path id="menuLateralActive"></path>
+                    <path id="menuLateralActive"></path>
+                    <path id="menuLateralActive"></path>
+                </rect>
+            </div>
+
+            <div class="header-logo">
+                <a class="header-logo-a" href="">                
+                    <h2>Visual studio</h2>
+                    <img src="/assets/logoVisualStudio.svg" alt="">
+                </a>
+            </div>
+
+            <div class="header-buttonNightMode">
+                <img id="nightMode-btn" src="assets/modoNoche_claro.PNG" alt="">
+            </div>
+    </header>
+
+    <div id="topScroll-btn" class="topScroll-btn">☝️</div>
+
+    <panel id="panel" class="panel">
+        <div class="panel-contenido">
+            <div class="panel-contenido-logo">
+                <h2>visual studio</h2>
+                <img src="/assets/logoVisualStudio.svg" alt="">
+            </div>
+            <nav class="panel-contenido-menu">
+                <a href="#section1" id="menuLateralActive">Section 1</a>
+                <a href="#apuntes1" id="menuLateralActive">Apuntes</a>
+                <a href="#section2" id="menuLateralActive">Section 2</a>
+                <a href="#section1" id="menuLateralActive">section 3</a>
+            </nav>
+        </div>
+        <div class="panel-parteOcura" id="menuLateralActive"></div>
+    </panel> 
+
+<main>
+<section class="section1" id="section1">
+    <h3>Section 1</h3>
+
+    <div class="section1-contenido">
+        
+        <div class="section1-contenido-relojAnalogico">
+            <h4>Relog analogico</h4>
+            <div class="section1-contenido-relojAnalogico-container">
+                <div class="section1-contenido-relojAnalogico-container-circle">
+                    <div class="section1-contenido-relojAnalogico-container-circle-circleCentro"></div>
+                    <div id="hours" class="section1-contenido-relojAnalogico-container-circle-hours"></div>
+                    <div id="minutes" class="section1-contenido-relojAnalogico-container-circle-minutes"></div>
+                    <div id="seconds" class="section1-contenido-relojAnalogico-container-circle-seconds"></div>
+                </div>
+            </div>
+        </div>
+
+        <div  class="section1-contenido-eventTeclado">
+            <h4>Eventos del teclado</h4>
+            <div id="ballContainer" class="section1-contenido-eventTeclado-container">
+                <div id="ball" class="section1-contenido-eventTeclado-container-ball"></div>
+                <div  id="mesageCelular" class="section1-contenido-eventTeclado-container-mesageCelular">
+                    <span class="material-icons-outlined">error_outline</span>
+                    <div>Cambia a Desktop para activar</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section1-contenido-contador">
+            <h4>Cuenta regresiva</h4>
+            <div id="divMuestraContador"></div>
+        </div>
+    </div>
+</section>
+
+<section class="apuntes1" id="apuntes1">
+
+    <h3>Mis apuntes</h3>
+
+    <div class="apuntes1-cardContent">
+        <div class="apuntes1-cardContent-card">
+            <a href="/proyectosNotas/responsive design y arquitectura CSS/index.html">
+                <img src="/assets/arquitecturaCSS.png" alt="arquitecturaCSS">
+                <h4>Aquitectura css y responsive desing</h4>
+            </a>
+            <span>Guía</span>
+        </div>
+        <div class="apuntes1-cardContent-card">
+            <a href="/proyectosNotas/Sass CSS/index.html">
+                <img src="/assets/Sass.jpg" alt="sass">
+                <h4>Preprocesador Sass</h4>
+            </a>
+            <span>Apuntes</span>
+        </div>
+    </div>
+</section>
+
+<section class="section2" id="section2" >
+    <h3>Section 2</h3>
+    <div class="section2-contenido">
+
+        <div class="section2-contenido-windowTester">
+            <h4>Window tester</h4>
+            <div class="section2-contenido-windowTester-contenedorForm">
+                <form id ="form" class="section2-contenido-windowTester-contenedorForm-form" >               
+                    <input class="section2-contenido-windowTester-contenedorForm-form-inputs"  name="ulr" type="ulr" placeholder="ULR" required>
+                    <input class="section2-contenido-windowTester-contenedorForm-form-inputs"  name="ancho" type="text" placeholder="ancho" required>
+                    <input class="section2-contenido-windowTester-contenedorForm-form-inputs"  name="largo" type="text" placeholder="largo" required>
+                    <div class="section2-contenido-windowTester-contenedorForm-form-buttons">
+                        <input class="section2-contenido-windowTester-contenedorForm-form-buttons-button"  name="submit" type="submit" value="tester">
+                        <input class="section2-contenido-windowTester-contenedorForm-form-buttons-button"  name="cerrar" type="button" value="cerrar">
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        <div class="section2-contenido-userAgent">
+            <h4>User agent</h4>
+            <div class="section2-contenido-userAgent-contenedor">
+                <div class="section2-contenido-userAgent-contenedor-div" id="divUserAgent"></div>
+            </div>
+        </div>
+    
+        <div class="section2-contenido-estadoDeRed">
+            <h4>Estado de red</h4>
+            <div class="section2-contenido-estadoDeRed-contenedor" id="onlineOflineDiv">
+                <svg class="section2-contenido-estadoDeRed-contenedor-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24">
+                    <g fill="none" stroke="rgb(185, 185, 185)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 12v.01"></path><path d="M14.828 9.172a4 4 0 0 1 0 5.656"></path><path d="M17.657 6.343a8 8 0 0 1 0 11.314"></path>
+                    <path d="M9.168 14.828a4 4 0 0 1 0-5.656"></path><path d="M6.337 17.657a8 8 0 0 1 0-11.314"></path></g>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="section3" id="section3">
+    <h3>Section 3</h3>
+    <div class="section3-contenido">
+        <div class="section3-contenido-div">
+            
+        </div>
+    </div>
+</section>
+
+
+    </main>
+    <script src="index.js" type="module"></script>
+</body>
+</html>

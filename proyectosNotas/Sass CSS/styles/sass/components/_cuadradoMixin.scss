@@ -1,0 +1,22 @@
+
+
+@mixin cuadrado($backColor) {
+    // : 100px  puedo colocar un valor por defecto si no coloco nada en la variable
+    width:  50px;
+    height: 50px;
+    background-color: $backColor;
+    display: inline-block;
+    margin: 20px 0 20px 0;
+    &:hover{
+        background-color: rgb(255, 255, 255);
+    }
+}
+
+.cuadradoMixin_{
+
+    @each $name,$color in $palette {
+        &#{$name}{
+            @include cuadrado(paletteColors($name));
+        }
+    }
+}

@@ -1,0 +1,33 @@
+
+$colors:"square-1" red, 
+        "square-2" green,
+        "square-3" black,
+        "square-4" orange,
+        "square-5" yellow,
+        "square-6" rgb(0, 255, 0),
+        "square-7" rgb(0, 217, 255),
+        "square-8" rgb(255, 0, 242),
+        "square-9" rgb(121, 7, 26),
+        "square-10" rgb(0, 255, 242),
+        "square-11" rgb(217, 255, 0),
+        "square-12" rgb(255, 166, 0),
+        "square-13" rgb(129, 42, 170),
+        "square-14" rgb(145, 255, 0);
+
+@mixin cuadrados($color){
+        background-color: $color;
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+        margin: 20px 0 20px 0;
+        &:hover{
+            background-color: rgb(255, 255, 255);
+        }
+}
+@each $nameClass, $color in $colors{
+    .#{$nameClass}{
+        @include cuadrados($color)
+        // este ietera la lista que esta arriba $colors
+    }
+}
+

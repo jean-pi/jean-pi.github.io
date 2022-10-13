@@ -1,0 +1,22 @@
+%cuadradoPlaceHolder{
+    background-color: rgb(170, 226, 17);
+    width: 50px;
+    height: 50px;
+    display: inline-block;
+    margin: 20px 0 20px 0;
+    &:hover{
+        // el "&" hace referencia al padre y se puede agregar texto 
+        background-color: rgb(255, 255, 255);
+    }
+}
+//ES COMO HERERAR UNA CLASES
+// la diferencia con los mixin es que los PlaceHolders no permiten recibir variables
+// pero se pueden agregar estas despues si se quiers asi mira:
+
+.cuadradoPlaceHolder_{
+    @for $i from 1 through 29{
+        &#{$i}{
+            @extend %cuadradoPlaceHolder;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+
+.header{
+        border-bottom: 2px solid var(--color_negro);
+        align-items: center;
+        display: flex;  
+        padding: 1rem 1.8rem;
+
+        &-btnHamburguer{
+            &-rect{
+                width: 18px;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                path{
+                    height: 2px;
+                    margin: 1.5px 0 1.5px 0;
+                    background-color: var(--color_negro);
+                }
+            }
+        }
+
+
+        &-logo{
+            margin: 0 1.2rem ;
+            &-a{
+                display: flex;
+                justify-content:center ;
+                text-decoration: none;
+                //h2 in global.scss
+                img{
+                    margin-left: .4em;
+                    width: 1.75rem;
+                }
+            }
+        }
+    
+        &-buttonNightMode{
+            margin-left: auto;
+            img{
+                width: 40px;
+                height: 40px;
+                cursor: pointer;
+            }
+        }
+    }

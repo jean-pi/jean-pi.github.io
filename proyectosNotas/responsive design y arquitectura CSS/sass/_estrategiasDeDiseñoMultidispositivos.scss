@@ -1,0 +1,106 @@
+// 1.11.1.Adaptive Design
+
+// 1.11.2.Responsive design + server side components
+
+// 1.11.3.Responsible responsive design
+
+// 1.11.4.Fluid Design
+    //1.11.4.1.grid responsiva fluida
+    .gridFluida-container{
+        // max-width: 900px;
+        // min-width: 360px;
+        margin: auto;
+        background-color: rgb(31, 31, 31);
+        padding: 20px;
+        border-radius: 10px ;
+        display: grid;
+        grid-auto-flow: dense;
+        // dense rellena espacios en blanco, ejm mira la grid 
+        // como el elemnto 5 se adelanta al cutro porque el cuatro no encaja
+        grid-auto-rows: 15rem;
+        gap: 1rem;
+        grid-template-columns:repeat(auto-fit, minmax(min(100%, 10rem),1fr));
+        // --auto-fit: cuando hay un espacio en balnco 
+        // llena el espacio del contenedor expandiendo los hijos
+        // --auto-fill: cuando hay un espacio en balnco 
+        // matiene el tamaño de los hijos y llena el espacio faltante con columnas
+        div{
+            background-color: rgb(45, 196, 196);
+            margin:5px;
+            border-radius: 10px ;
+            padding: 10px;
+        }
+        .gridFluida-2{
+            grid-column: span 2;
+        }
+        .gridFluida-4{
+            grid-column: span 2;
+        }
+        .gridFluida-7{
+            grid-column: span 2;
+        }
+    }
+    //1.11.4.2 textos fluidos clamp
+
+    /* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1024,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+
+    :root {
+        --step--2: clamp(0.91rem, calc(0.89rem + 0.11vw), 0.96rem);
+        --step--1: clamp(1.09rem, calc(1.05rem + 0.24vw), 1.20rem);
+        --step-0: clamp(1.31rem, calc(1.23rem + 0.43vw), 1.50rem);
+        --step-1: clamp(1.58rem, calc(1.44rem + 0.68vw), 1.88rem);
+        --step-2: clamp(1.89rem, calc(1.68rem + 1.03vw), 2.34rem);
+        --step-3: clamp(2.27rem, calc(1.97rem + 1.50vw), 2.93rem);
+        --step-4: clamp(2.72rem, calc(2.29rem + 2.14vw), 3.66rem);
+        --step-5: clamp(3.27rem, calc(2.67rem + 2.98vw), 4.58rem);
+        }
+
+    .textoFluidoContainer{
+        border: 2px solid black;
+        padding: 2%;
+    }
+    .step--2{
+        font-size: var(--step--2);
+    }
+    .step--1{
+        font-size: var(--step--1);
+    }
+    .step-0{
+        font-size: var(--step-0);
+    }
+    .step-1{
+        font-size: var(--step-1);
+    }
+    .step-2{
+        font-size: var(--step-2);
+    }
+    .step-3{
+        font-size: var(--step-3);
+    }
+    .step-4{
+        font-size: var(--step-4);
+    }
+    .step-5{
+        font-size: var(--step-5);
+    }
+
+    // forma super rapida de hacer todo responsivo
+    body{
+        // 14 = tamaño de letra mas pequeño
+        // 18 = tamaño de letra mas grande
+        // 375 = tamaño de viewponst mas pequeño
+        // 1024 = tamaño de viewport mas grande
+        // font-size: calc(14px + (16 - 14)*((100vw - 375px)/(1024 - 375)));
+    }
+
+
+    // caja fluida--
+    .cajaFluida{
+        // medida mas pequeña, medida estandar , medida mas grande
+        width: clamp(360px,60vw, 600px);
+        height: clamp(180px,30vw,300px);
+        background-color: burlywood;
+        margin: auto;
+    }
+
+

@@ -1,0 +1,56 @@
+// install sass by npm in the page of sass oficial say this isn"t the fastest way (investigate more)
+// sass --watch sass:css   for synchronize the files SCSS to CSS
+// --watch is for compiled the files at the all time
+
+// --i can to create variables in sass
+// --i can to export files
+// --i can to create mixin(the mixin is a element reusable, this accept parameters too)
+// --placeHolder - es tipo una clase la cual se puede heredar , funciona casi como los MIXIN excepto que los place
+//   placeholders no aceptan variables
+// --& se usa para hacer referencia a un elemento padre 
+// --cambiar el background de una variable
+//   (aun no se sabe que color recibira per se quiere que este 
+//   aunque no se sepa que color es tenga un opaciti en ciert parte)
+//   | background: rgb($color,1.5) esto cambia la opacidad
+//   | darkern($color: $colorVariable, $amount:10) $amount es la cantidad de oscuridad
+//   | lighten($color: $colorVariable, $amount:10) $amount es la cantidad de claridad
+//   | mix($colorVariable, #fff) mescla los dos colores (esto es unico creo no creo que se use mucho)
+//   | scale-color($color: $colorVariable, saturacion: 20%, lightness: 60%) 
+
+
+// una buena practica es crear un archivo "styles.scss" y exportar todo el codigo en este file
+
+/** abtracts **/
+@import "./components/variables";
+@import "./components/functions";
+
+/**globals **/
+
+
+
+/** components **/
+
+@import "./components/cuadradoMixin",
+    "./components/cuadradoPlaceHolder",
+    "./components/listasUsos",
+    "./components/while";
+
+
+// en sass hay
+//  variables - mapas - listas
+// @Funciones - @each - @if - @for - while
+// %Placeholders - @mixin
+// selector padre: & - crear clases: .#{Lista o mapa con @each} - nth-child(#{valores iterados})
+// @extend - sirve para extender clases, si hay elementos globales se los crea aqui y se extiende la clase
+
+
+h1{
+    color: paletteColors(colorPrimario);
+    font-family: $fontTypeOne;
+    display: block;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    margin: auto;
+    background-color: paletteColors(colorSecundario);
+}

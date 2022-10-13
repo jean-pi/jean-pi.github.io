@@ -1,0 +1,32 @@
+$ git --version
+
+$ git config --global user.name "Jean Pierre Veliz"
+$ git config --global user.email jeanpierreveliz26@gmail.com
+$ git config --global core.editor "code --wait"
+$ git config --global -e
+$ git config --global core.autocrlf true     // elimina los saltos de linea que coloca windows [en mac es "input" y no "true"]
+$ git config -h  // opciones configuracion
+
+--FLUJO DE TRABAJO
+ 1-stage: $ git add {} // guarda solo los cambios que se han echo esta accion no 
+ se sube al repositorio
+ 2-commit: $ git commit {} // una vez que este en stage todo los cambios que quiero subir se hace un commit
+ 3-server: $git push // subir a un server el commit
+
+$ ls //todas las carpetas
+$ pwd // en que carpeta estoy
+// tecla tab para completar el nombre del directorio
+$ cd {directorio} //entrar a carpeta
+$ cd .. {directorio} //subir una carpeta
+$ mkdir {name} // crear una carpeta
+$ git init // iniciar un repositorio git (la carpeta esta oculta [nombreDeCarpeta/.git])
+$ ls -a // muestra los archivos y los archivos ocultos
+$ code . //abre el editor de codigo en la carpeta actual
+$ git status
+$ git add {nombreDelArchivo} {otroArchivo} || {.}  //el punto agrega todo
+// agregar archivos a ETAPA DE STAGE
+// buena practica solo pasar a stage los archivos modificados
+
+
+
+

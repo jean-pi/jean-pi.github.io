@@ -1,0 +1,45 @@
+
+.panel{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    z-index: 100;
+    transform: translate(-100% , 0);
+    display: flex;
+    &-contenido{
+        min-width: 300px;
+        overflow-x: scroll ;
+        overflow-y: scroll ;
+        padding: 1.5rem;
+        background-color: var(--color_blanco) ;
+        &-logo{
+            display: flex;
+            margin-bottom: 1.5rem;
+            // <h2> in global.scss
+            img{
+                margin-left: .4em;
+                width: 1.75rem;
+            }
+        }
+        &-menu{
+            display: flex;
+            flex-direction: column;
+            a{
+                font-size: 1.1rem;
+                margin: .8rem 0;
+                text-decoration: none;
+                color: var(--color_negro);
+                font-family: google-sans-display, sans-serif;
+            }
+        }
+    }
+    &-parteOcura{
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.808);
+    }
+}
+
+    .panel-is_active{
+        transform: translate(0 , 0);
+    }

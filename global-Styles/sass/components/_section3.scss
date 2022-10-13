@@ -1,0 +1,21 @@
+@use "../abstracts/predesigns";
+
+.section3{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    &-contenido{
+        flex: 1;
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+        gap: .6rem .6rem;
+        padding: .5rem 1rem 1rem 1rem ;
+        &-div{
+            width: 500px;
+            height: 400px;
+            // border: 2px solid black;
+            @include predesigns.cuadricula_elements(var(--color_mostaza),#202124,#202124);
+        }
+    }
+}

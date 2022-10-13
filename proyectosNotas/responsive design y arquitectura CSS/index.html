@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>responsive apuntes</title>
+    <link rel="shortcut icon" href="img/terminalLogo.svg" />
+    <link rel="text/html" href="styles/normalize .css">
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+    <h1>responsive design y arquitectura css</h1>
+<main>
+    <!--indice------------------------------------------------------------->
+    <article>
+        <ul>
+            <p>ejempos de paginas responsivas <a target="_blank" href="https://mediaqueri.es/">mediaqueri.es</a></p>
+            <li class="nivel-1"><h3>1.<a href="#1"> Responsive design</a></h3>
+                <ul>
+                    <li>1.1.<a href="#1.1">Contenedores flexibles</a></li>
+                    <li>1.2. <a href="#1.2">multimedia flexible</a>
+                        <ul>
+                            <li>1.2.1.<a href="#1.2.1"> imagenes flexibles</a>
+                                <ul>
+                                    <li>1.2.1.1.<a href="#1.2.1.1"> atriburo "srcset" y "sizes"</a></li>
+                                    <li>1.2.1.2.<a href="#1.2.1.2">Etiqueta picture</a></li>
+                                </ul>
+                            </li>
+                            <li>1.2.2.<a href="#1.2.2">Videos responsivos(&ltiframes&gt y &ltvideo&gt)</a></li>
+                        </ul>
+                    </li>
+                    <li>1.3.<a href="#1.3"> Media queries</a></li>
+                    <li>1.4.<a href="#1.4"> Breakpoints</a></li>
+                    <li>1.5.<a href="#1.5"> Etiqueta meta viewport</a></li>
+                    <li>1.6.<a href="#1.6"> Grid responsiva artesanal con flexbox??</a></li>
+                    <li>1.7.<a href="#1.7"> Feature queries</a></li>
+                    <li>1.8.<a href="#1.8"> Container queries</a></li>
+                    <li>1.9.<a href="#1.9"> SEO</a></li>
+                    <li>1.10.<a href="#1.10"> Desktop first vs mobile first</a></li>
+                    <li>1.11.<a href="#1.11"> Estrategias de diseño multidispositivos</a>
+                        <ul>
+                            <li>1.11.1<a href="#1.11.1">Adaptive Design</a></li>
+                            <li>1.11.2<a href="#1.11.2">Responsive design + server side components</a></li>
+                            <li>1.11.3<a href="#1.11.3">Responsible responsive design</a></li>
+                            <li>1.11.4<a href="#1.11.4">Fluid Design</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li><h3>2.<a href="#2">Extra css</a></h3></li>
+            <li><h3>3.<a href="#3">Metodologias CSS</a></h3>
+                <ul>
+                    <li><h3>3.1<a href="#3.1">BEM</a></h3></li>
+                    <li><h3>3.2<a href="#3.2">SMACSS</a></h3></li>
+                    <li><h3>3.3<a href="#3.3">OOCSS</a></h3></li>
+                    <li><h3>3.4<a href="#3.4">ITCSS</a></h3></li>
+                    <li><h3>3.5<a href="#3.5">AMCSS</a></h3></li>
+                    <li><h3>3.6<a href="#3.6">SUITCSS</a></h3></li>
+                    <li><h3>3.7<a href="#3.7">Atomic design</a></h3></li>
+                </ul>
+            </li>
+        </ul>
+    </article>
+    <!---tema 1: Contenedores flexibles------------------------------------>
+    <article>
+        <h2 id="1">1.Responsive design</h2>
+        <br>
+        <h3 id="1.1">1.1.Contenedores flexibles</h3>
+        <p>Todos los contenedores o elementos en pantalla deben ser flexibles</p>
+        <div class="box-flexible">caja flexible</div>
+        <pre><code>
+    .box-flexible{
+        width: 97%;
+        height: 10vh;
+    }
+        </code></pre>
+        <div class="box-flexible_2">max-width-height and min-width-height</div>
+        <pre><code>
+    .box-flexible_2{
+        max-width: 760px;
+        min-width: 280px;
+        max-height: 100px;
+        min-height: 60px;
+        background-color: chocolate;
+
+        /* width: 90%; height: 10%; */
+        no puedo colocar un width ni height
+        especifico esto anularia los max y min**/
+    }
+        </code></pre>
+    </article>
+    <!-- tema 2: multimedia flexible--------------------------------------->
+    <article>
+        <h3 id="1.2">1.2.multimedia flexibles</h3>
+        <p>Elementos <b>multimedia</b> : 
+            <ul>
+                <li>Imagenes</li>
+                <li>audios</li>
+                <li>videos</li>
+                <li>svg: dibujar graficos especificos</li>
+                <li>canvas: mostrar contenido especifico: un videoJuego, greficos que se mueven, o alguna animacion espeficica</li>
+                <li>iframes: crea un espacio donde los elementos operan de manera autonoma , por lo general se usa para insertar contenido de otras webs</li>
+                <li>picture: permite tener imagenes segun el tamaño la pantalla</li>
+                <li>embed</li>
+                <li>object</li>
+                <li>map</li>
+                <li>area</li>
+            </ul>
+        </p>
+
+        <h3 id="1.2.1">1.2.1.imagenes flexible</h3>
+        <pre><code>
+    img,audio,video,iframe,canvas,svg,picture{
+        max-width: 100%;
+        height: auto;
+        // con estos todos se vuelven flexibles
+    }
+        </code></pre>
+        
+        <img src="img/img1920x1080.jpg" alt="">
+        <img src="img/img400x300.jpg" alt="">
+
+        <h4 id="1.2.1.1">1.2.1.1.atriburo <i>"srcset"</i> y <i>"sizes"</i></h4>
+        <p>Estos atributos nos permiten colocar la imagen mas adecuada segun el tamaño del contenedor <br>
+            se pueden definir las imagen por <i>"aspect ratio"</i> o por el <i>"ancho de la pantalla"</i> </p>
+
+
+        <pre><code>
+    &lt  segun el aspect ratio  &gt
+    &lt img src="img/img_srcset_size_512px.jpg" srcset="img/img_srcset_size_512px.jpg 1x, 
+    img/img_srcset_size_760px.jpg 1.5x, img/img_srcset_size_1024px.jpg 2x" alt="srcset/aspect ratio" &gt
+        </code></pre>
+        <img src="img/img_srcset_size_512px.jpg" srcset="img/img_srcset_size_512px.jpg 1x, img/img_srcset_size_760px.jpg 1.5x, 
+        img/img_srcset_size_1024px.jpg 2x" alt="srcset/aspect ratio">
+
+        <br>
+
+        <pre><code>
+    &lt segun el tamaño del width &gt
+    &lt img src="img/img_srcset_size_512px.jpg" srcset="img/img_srcset_size_512px.jpg 512w,
+    img/img_srcset_size_760px.jpg 760w, img/img_srcset_size_1024px.jpg 1024w" alt="srcset/ancho de pantalla:width" &gt
+        </code></pre>
+        <img src="img/img_srcset_size_512px.jpg" srcset="img/img_srcset_size_512px.jpg 512w,img/img_srcset_size_760px.jpg 760w,
+        img/img_srcset_size_1024px.jpg 1024w" alt="srcset/ancho de pantalla">
+        
+        <br>
+
+        <pre><code>
+    &lt los "sizes" son mas optimizados por que no carga una imagen 
+    nueva con un nuevo tamaño solo cambia el tamaño de la imagen en px &gt
+
+    &lt img src="img/img_srcset_size_512px.jpg" 
+    srcset="img/img_srcset_size_512px.jpg 512w,img/img_srcset_size_760px.jpg 760w,
+    img/img_srcset_size_1024px.jpg 1024w" 
+    sizes="(max-width:480px) 250px, (max-width:600px) 360px, (max-width:760px) 460px, 
+    (max-width:1024px) 600px,(min-width:1200px) 1200px"
+    alt="srcset/sizes" &gt
+        </code></pre>
+
+        <img src="img/img_srcset_size_512px.jpg" 
+        srcset="img/img_srcset_size_512px.jpg 512w,img/img_srcset_size_760px.jpg 760w,img/img_srcset_size_1024px.jpg 1024w" 
+        sizes="(max-width:480px) 250px, (max-width:600px) 360px, (max-width:760px) 460px, (max-width:1024px) 600px,(min-width:1200px) 1200px"
+        alt="srcset/sizes">
+        
+    <h4 id="1.2.1.2">1.2.1.2.Etiqueta <i>picture</i></h4>
+    <p>    
+        <b>Picture me parece una mejor opcion que la propiedad "srcset" sin embargo, la propiedad "sizes" no carga una nueva imagen 
+            solo reduce su tamaño por lo cual hace que la pagina sea mas liviana (creo que es entos tiempos no es un problema cargar una nueva imagen, me gusta mas picture)</b> <br>
+        El objetico de &lt picture &gt no es solo mostar diferentes tamaños de la misma imagen,
+        si no mostar imagenes diferentes por ejemplo mostar una imagen cortada para que se ve mejor esteticamente en otros dipositivos
+        a esto se lo comoce como "direccion de arte".
+    </p>
+
+    <pre><code>
+    &lt picture &gt
+        &lt source srcset="img/google1280px.svg.png" media="(min-width:600px)" &gt
+        &lt source srcset="img/google403px.svg.png" media="(max-width:600px)" &gt
+        &lt img src="img/google1280px.svg.png" alt="google-1280px" &gt
+    &lt /picture &gt
+    </code></pre>
+
+    <div class="div_pruebaPicture">
+        <picture>
+            <source srcset="img/google1280px.svg.png" media="(min-width:600px)">
+            <source srcset="img/google403px.svg.png" media="(max-width:600px)">
+            <img src="img/google1280px.svg.png" alt="google-1280px">
+        </picture>
+    </div>
+
+    <pre><code>
+        &lt NOTITAS CSS &gt
+        &lt ahy un elemento con la propiedad "position:relative" y el hijo tiene un "position:absolute" 
+        el hijo tomara cmo referencia el padre(ya no andara libre por todo el viewport) &gt
+        &lt para aplicarle una altura con porcentage a un elemento el padre debe tener una altura definida &gt
+    </code></pre>
+
+    <br>
+    <br>
+
+    <h3 id="1.2.2">1.2.2.Videos responsivos(&ltiframes&gt y &ltvideo&gt)</h3>
+
+    <pre><code>
+    img,audio,video,iframe,canvas,svg,picture{
+        max-width: 100%;
+        height: auto;
+        // con estos todos se vuelven flexibles
+    }
+    &lt aplicando la regla general para hacer flexibles elementos multimedias queda asi,
+    porque toma el valor por defecto de los inframes &gt
+    </code></pre>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/udGrXWeJp1Y?start=6842" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+    
+    <br><br>
+
+    <pre><code>
+    img,audio,video,iframe,canvas,svg,picture{
+        max-width: 100%;
+        height: auto;
+        // con estos todos se vuelven flexibles
+    }
+    .iframe_Aspect_Ratio{
+        aspect-ratio: 16/9;
+    }
+    &lt se debe cambia la relacion de aspecto &gt
+    </code></pre>
+    <iframe class="iframe_Aspect_Ratio" width="560" height="315" src="https://www.youtube.com/embed/udGrXWeJp1Y?start=6842" 
+    title="YouTube video player" frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen></iframe>
+        
+    <br>
+    <br>
+
+    <pre><code>
+        img,audio,video,iframe,canvas,svg,picture{
+            max-width: 100%;
+            height: auto;
+            // con estos todos se vuelven flexibles
+        }
+        .googleMaps_aspectRatio_cuadrado{
+            aspect-ratio: 1/1;
+        }
+    </code></pre>
+    <iframe class="googleMaps_aspectRatio_cuadrado" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255168.2564017465!2d-80.12018958501143!3d-2.152151709815367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13cbe855805f%3A0x8015a492f4fca473!2sGuayaquil!5e0!3m2!1ses-419!2sec!4v1655428172913!5m2!1ses-419!2sec" 
+    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </article>
+    <!-- tema 3: media queries--------------------------------------------->
+    <article>
+        <h3 id="1.3">1.3.Media Queries</h3>
+        <p>los tipos de medias son <b>all </b>, <b> print </b>, <b> screen</b> and <b> speech</b>(lectores de pantalla para personas con discapacidad visual, sintetizadores de voz)</p>
+        <pre><code> 
+    @media print{
+        @page{
+            // La regla @page es usada para 
+            // modificar algunas propiedades CSS cuando se 
+            // va a imprimir una página web
+            size: A6;
+        }
+        body{
+            color: rgb(73, 154, 224);
+        }
+    }
+        </code></pre>
+
+        <pre><code>
+    @media screen and(prefers-color-scheme: dark){
+        html{
+            background: rgb(0, 0, 0);
+            color: rgb(255, 255, 255);
+
+            .table{tr{ th{border: 1px solid rgb(255, 255, 255);}td{border: 1px solid rgb(255, 255, 255);}}}
+            
+            code{color: rgb(0, 0, 0);}
+        }
+    }
+        </code></pre>
+
+
+        <h4>propiedades que soportan las media queries</h4>
+        <p>estas propiedades se evaluan y cuando se cumplan se ejecuta el codigo <b> CSS </b>dentro de la @media</p>
+
+
+        <table class="table">
+            <tr>
+                <th>Propiedad</th>
+                <th>Definición</th>
+                <th>max / min</th>
+            </tr>
+            <tr>
+                <td><b><i>width</i></b></td>
+                <td><p>El ancho del área de visualización.</p></td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>height</i></b></td>
+                <td><p>El alto del área de visualización.</p></td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>device-width</i></b></td>
+                <td><p>La anchura de la superficie de representación del dispositivo.</p></td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>device-height</i></b></td>
+                <td><p>La altura de la superficie de representación del dispositivo.</p></td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>orientation</i></b></td>
+                <td><p>Acepta los valores de <i>portrait</i> (vertical) y <i>landscape</i> (horizontal).</p></td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><b><i>aspect-ratio</i></b></td>
+                <td><p>Relación entre la anchura de la zona de visualización de toda su altura.</p>
+                <p> Por ejemplo: en una computadora de escritorio, se podría consultar si la ventana del navegador se encuentra en una relación de 16:9.</p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>device-aspect-ratio</i></b></td>
+                <td><p>Proporción de anchura de la superficie de representación del dispositivo a través de su altura.</p>
+                <p> Por ejemplo: en una computadora de escritorio, se podría consultar si la pantalla está en una relación de 16:9.</p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>color</i></b></td>
+                <td>
+                <p>El número de <i>bits</i> por componente de color del dispositivo.</p>
+                <p>
+                    Por ejemplo, un dispositivo de color de 8 <i>bits</i> podría pasar con éxito una consulta de (color: 8).
+                    Dispositivos de color
+                    no deben devolver un valor de 0.
+                </p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>color-index</i></b></td>
+                <td>
+                <p>
+                    El número de entradas en la tabla de búsqueda de color del dispositivo de salida.
+                </p>
+                <p>
+                    Por ejemplo, <i>@media screen and (min-color-index:256)</i>.
+                </p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>monochrome</i></b></td>
+                <td>
+                <p>
+                    Al igual que el color, la característica monocromática permite ponernos a prueba el número de <i>bits</i>
+                    por pixel
+                    en un
+                    dispositivo monocromático.
+                </p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>resolution</i></b></td>
+                <td>
+                <p>
+                    Pruebas de la densidad de los píxeles en el dispositivo.
+                </p>
+                <p>
+                    Por ejemplo, <i>screen and (resolution:72dpi) or screen and (max-resolution:300dpi)</i>.
+                </p>
+                </td>
+                <td>✔️</td>
+            </tr>
+            <tr>
+                <td><b><i>scan</i></b></td>
+                <td>
+                <p>
+                    Para la navegación basada en <i>tv</i>, mide si el proceso de exploración es progresiva o escaneo.
+                </p>
+                </td>
+                <td>❌</td>
+            </tr>
+            <tr>
+                <td><b><i>grid</i></b></td>
+                <td>
+                <p>
+                    Comprueba si el dispositivo es una pantalla basada en la red, como los teléfonos con funciones con una
+                    fuente de ancho
+                    fijo. Se puede expresar simplemente como (<i>grid</i>).
+                </p>
+                </td>
+                <td>❌</td>
+            </tr>
+        </table>
+
+
+
+
+        <p><i>Media Queries en mobile first:</i></p>
+        <pre><code>
+        @media screen and(min-width: 480px){
+            // de 480px en adelante se aplicaran los estilos para una pantalla mas grande
+            html{
+                background-color: palevioletred;
+            }
+        }
+        </code></pre>
+        <p><i>Media Queries en desktop first</i></p>
+        <pre><code>
+        @media screen and(max-width: 1024px){
+            // de 1024px para abajo se aplicaran los estilos para dispositivos mas pequeños
+            html{
+                background-color: cadetblue;
+            }
+        }
+        </code></pre>
+    </article>
+    <!-- tema 4: breakPoints----------------------------------------------->
+    <article id="1.4">
+        <h3>1.4.breakPoints</h3>
+        <p>Estos son las primeras medidas estandar, <b>(creo que estan un poco desactualizadas)</b></p>
+        <table class="table">
+            <tr>
+              <td><b><i>320px</i></b></td>
+              <td>
+                <p>Para dispositivos con pantallas pequeñas, como los teléfonos en modo vertical.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><b><i>480px</i></b></td>
+              <td>
+                <p>Para dispositivos con pantallas pequeñas, como los teléfonos, en modo horizontal.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><b><i>600px</i></b></td>
+              <td>
+                <p>Tabletas pequeñas, como el <i>Amazon Kindle</i> (600×800) y <i>Barnes & Noble Nook</i> (600×1024), en
+                  modo
+                  vertical.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><b><i>768px</i></b></td>
+              <td>
+                <p>Tabletas de diez pulgadas como el <i>iPad</i> (768×1024), en modo vertical.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><b><i>1024px</i></b></td>
+              <td>
+                <p>Tabletas como el <i>iPad</i> (1024×768), en modo horizontal, así como algunas pantallas de ordenador
+                  portátil, <i>netbook</i>, y de
+                  escritorio.</p>
+              </td>
+            </tr>
+            <tr>
+              <td><b><i>1200px</i></b></td>
+              <td>
+                <p>Para pantallas panorámicas, principalmente portátiles y de escritorio.</p>
+              </td>
+            </tr>
+        </table>
+
+        <p><b>IMPORTANTE!! convertir los px a EMs</b></p>
+        <p>Porque algunos dispositivos tienen muchos mas pixeles
+            aunque la pantalla tenga el mismo tamaño la cantidad de pixeles puede ser diferente
+            (mas en dispoditivos de gama alta), y los EMs solucionana esto, <b>tarea: entener la medida EMs</b>
+        </p>
+
+        <div>Objetivo en pixeles / Contexto en pixeles = Resultado en <i>Ems</i></div>
+        <div>320px / 16px = 20em</div>
+        <div>480px / 16px = 30em</div>
+        <div>600px / 16px = 37.5em</div>
+        <div>768px / 16px = 48em</div>
+        <div>1024px / 16px = 64em</div>
+        <div>1200px / 16px = 75em</div>
+    </article>
+    <!-- tema 5: Etiqueta meta viewport------------------------------------>
+    <article id="1.5">
+        <h3>1.5.Etiqueta meta viewport</h3>
+
+        <ol>
+            <li><b><i>width</i></b>: define el ancho visible, suele usarse la constante <i>device-width</i> para que se adapte al ancho del dispositivo.</li>
+            <li><b><i>height</i></b>: define el alto visible, suele usarse la constante <i>device-height</i> para que se adapte al alto del dispositivo.</li>
+            <li><b><i>initial-scale</i></b>: define la escala inicial a la que deberá visualizarse el contenido, siendo 1 el100%.
+            </li>
+            <li><b><i>minimum-scale</i></b>: define la escala mínima a la que se podrá hacer <i>zoom</i> al contenido, por
+                ejemplo si se
+                configura .5 significa que se podrá hacer un <i>zoom</i> de hasta el 50%.</li>
+            <li><b><i>maximum-scale</i></b>: define la escala máxima a la que se podrá hacer <i>zoom</i> al contenido, por
+                ejemplo si se
+                configura 3 significa que se podrá hacer un <i>zoom</i> de hasta el 300%.</li>
+            <li><b><i>user-scalable</i></b>: define si el usuario puede escalar o no el contenido, sus valores son
+                <i>yes</i> por defecto
+                y no
+                para bloquear esta propiedad.
+            </li>
+        </ol>
+
+        <p>no se recomienda cancelar el zoom - la de alto es opcional</p>
+        <pre><code>
+        &ltmeta name="viewport" content="width=device-width, initial-scale=1.0"&gt
+        </code></pre>
+        <br>
+        <br>
+    </article>
+    <!-- tema 6: grid responsiva artesanal con fexbox---------------------->
+    <article id="1.6">
+        <h3>1.6.Grid responsiva artesanal con flexbox?</h3>
+        <p>Pienso que en el pasado pudo ser util este sistema de columnas(no profundize)</p>
+    </article>
+    <!-- tema 7: feature queries------------------------------------------->
+    <article id="1.7">
+        <h3>1.7.Feature queries</h3>
+        <pre><code>
+        notita css: ::first-letter solo funciona en elementos Block
+        
+        @supports not(grid-template-columns: subgrid){
+            .pruebaFeatureQuerie::first-letter{
+                font-size: 2em;
+                color:blue;
+            }
+        }
+        </code></pre>
+        <div class="pruebaFeatureQuerie">
+            Las features Queries fueron importante uno años atras porque algunos navegadores no 
+            tenias algunas funcionalidades nuevas de css , y estas queries permitian detectar si el navegador
+            soportaba una funcionalidad y si no aplicaba los estilos dentro de la Querie conmo opcion secundaria.
+            <br><b>Aun que sea algo no muy usado, TENER EN CUENTA ESTE CONCEPTO</b>
+        </div>
+    </article>
+    <!-- tema 8: container queries----------------------------------------->
+    <article id="1.8">
+        <h3>1.8.Container queries</h3>
+        <p>
+            <i>A continuacion los que pienso de las <b>container queries</b></i><br>
+            Actualmente casi ningun navegador soporta las container queries, sin embargo 
+            a futuro tienen potencia Google le llama "the new responsive desing" 
+            <a target="_blank" href="https://web.dev/new-responsive/">pagina web.dev</a>
+            es basado en coponentes los cambios se hacen segun el tamaño del contenedor y no segun el tamaño de la pantalla<br>
+            <b>poner atencion a estos conceptos para aplicarlos a futuro</b>
+        </p>
+    </article>
+    <!-- tema 9: seo------------------------------------------------------->
+    <article id="1.9">
+        <h3>1.9.SEO</h3>
+        <p>Google desde el 21 de abril de 2015 (MobileGeddon) actualizo su algoritmo de busqueda 
+            posiciona de mejor manera a las paginas 
+            optimizadas para celulares <br> <i>MobileGeddon afecta:</i>
+            <ul>
+                <li>1.-Exclusivamente a las busquedas realizadas en dispositivos moviles</li>
+                <li>2.-El algoritmo se aplicara en todos lo idiomas y paises</li>
+                <li>3.-no se aplica a sitios web completos, solo a paginas que no cumplan los criterios</li>
+            </ul>
+
+            <a target="_blank" href="https://search.google.com/test/mobile-friendly/result?id=yCP8oEfiGeEwCLZfn1Nwng&hl=ES">Prueba optimizacion mobile google</a>
+            <br>
+            <a target="_blank" href="https://pagespeed.web.dev/">Herramienta para mejoras de velocidad google: Page speed insights (CON UN PUNTAGE DE 75 BASTA)</a>
+        </p>
+    </article>
+    <!-- tema 10: Desktop first vs mobile first---------------------------->
+    <article id="1.10">
+        <h3>1.10.Desktop first vs mobile first</h3>
+        <div class="desktop-monile-fisrt">
+            <div>
+                <h4>Desktop Fisrt</h4>
+                <p>Las media queries deben ir de la
+                <b>mayor a la menor</b> se utiliza pa propiedad <b>max-width</b>
+                para las media queries</p>
+                <img src="https://designshack.net/wp-content/uploads/ds-mobilefirst-1.jpg" alt="">
+            </div>
+
+            <div>
+                <h4>Mobile Fisrt</h4>
+                <p>Las media queries se deben definir de la 
+                <b>menor a la mayor</b> se usa la propiedad <b>min-width</b>
+                para las media queries</p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjUGUv5hSQzie6hiXfIfAJzCPICUKbr8n5bWh2LYtIAud0TTDDeJIjeubS3S9V8p5CBJY&usqp=CAU" alt="">
+            </div>
+        </div>
+    </article>
+    <!-- tema 11: estrategias de diseño multidispositivos------------------>
+    <article id="1.11">
+        <h3>1.11.estrategias de diseño multidispositivos</h3>
+        <h4 id="1.11.1">1.11.1.Adaptive Design</h4>
+        <p>No se trabaja en adaptar la pagina a diferentes dispositivos
+            si no que se crea en un diseño especifico para cada tamaño
+            esto se trabaja con javascript se puede dectar en que dispositivo 
+            se carga la pagina y uestra el la pagina especifica <br>
+            <b>Ejemplo:</b> facebook web de escritorio (facebook.com) es 
+            diferente al facebook web mobile (m.facebook.com)
+        </p>
+        
+        <h4 id="1.11.2">1.11.2.Responsive design + server side components</h4>
+        <p>no profundize nada (es raro usar esta tecnica) responsive design con ayuda del backend</p>
+
+        <h4 id="1.11.3">1.11.3.Responsible responsive design</h4>
+        <p>Usar programacion para adaptar lo mejor posible un sitio <br>
+        <b>Ejemplo:</b> contenido embebido como un video de yoube o un un google maps pesan 1mb o 2mb
+        es mucho talves para un celular , con js se puede detectar en dispositivo y mostrar solo un link 
+        <i>la verdad aun no le entiendo a esto , igual es muy pro TENER EN CUENTA EN EL FUTURO</i></p>
+
+        <h4 id="1.11.4">1.11.4.Fluid Design</h4>
+        <p><b>este me llama la a tencion</b>
+            <br>EL fluid design se basa en adaptar el contenido con pocas o sin mediaQueries mediaqueris 
+            <a target="_blank" href="https://utopia.fyi/">utopia fluid dsign</a>
+        </p>
+        <h4>Grid fluida-----</h5>
+        <section class="gridFluida-container">
+            <div class="gridFluida-1">
+                <h3>grid 1</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos itatis?</p>
+            </div>
+            <div class="gridFluida-2">
+                <h3>grid 2</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, voluptas veritatis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, voluptas veritatis?
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, voluptas veritatis?
+                </p></div>
+            <div class="gridFluida-3">
+                <h3>grid 3</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Q</p></div>
+            <div class="gridFluida-4">
+                <h3>grid 4</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, </p></div>
+            <div class="gridFluida-5">
+                <h3>grid 5</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, </p></div>
+            <div class="gridFluida-6">
+                <h3>grid 6</h3>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos odio, voluptas </p></div>
+            <div class="gridFluida-7">
+                <h3>grid 7</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qveritat</p></div>
+        </section>
+
+        <h4>Textos fluidos----</h4>
+        <div class="textoFluidoContainer">
+            <p><b>OJOOO SE PODRIA A APLICAR ESTAS REGLAS A LOS PADDING
+                Y MARGIN PAR ESPACIADOS FLUIDOS!! SUPER UTIL
+            </b></p>
+            <p class="step-5">step 5</p>
+            <p class="step-4">step 4</p>
+            <p class="step-3">step 3</p>
+            <p class="step-2">step 2</p>
+            <p class="step-1">step 1</p>
+            <p class="step-0">step 0</p>
+            <p class="step--1">step -1</p>
+            <p class="step--2">step -2</p>
+        </div>
+
+        <h4>Caja fluida </h4>
+        <div class="cajaFluida"></div>
+    </article>
+    <!-- 2.Extras---------------------------------------------------------->
+    <article id="2">
+        <h2>2.Extras CSS</h2>
+        <br>
+        <h3>2.1.Fuentes css</h3>
+        <pre><code>
+    @font-face{
+        font-family: "chalet";
+        // nombre de la tipografia a agregar
+        src: url("../assets/chalet.woff") format("woff")
+        // usar .woff para agregar 
+    }
+
+    .texto-font-chalet{
+        font-family: "challet", sans-serif;
+        // despues de la coma se recomienda escribir una tipografia secundaria
+        // para cuando la primra dura un poco en cargar
+    }
+        </code></pre>
+
+        <h4>text-overflow</h4>
+        <div style="max-width: 400px; max-height: 60px; border: 2px solid black; text-overflow: ellipsis; overflow: hidden; white-space: nowrap;">
+            Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Aliquid, ipsum numquam. 
+            Deserunt soluta qui et dicta inventore, 
+            nemo facilis voluptas aliquam aperiam 
+            praesentium maxime recusandae 
+            nulla! Facilis dolor consequuntur dignissimos.
+        </div>
+        <pre><code>
+    max-width: 400px; 
+    max-height: 60px; 
+    border: 2px solid black; 
+    // text-overflow añade 3 puntos si no entra el textp pero hay que tener overflow: hidden y white-space: nowrap
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    // white-space: nowrap no deja que el texto se diida en dos lineas UNA SOLA LINEA
+    // extra : la etiqueta &ltpre&gt tiene un White-space:pre que respeta todos los espacios y saltos de linea
+    white-space: nowrap;
+        </code></pre>
+
+
+        <h4>Estilos de formularios</h4>
+        <form action="https://formsubmit.co/su@email.com" method="post">
+            <input type="text" name="nombre" placeholder="Escribe tu nombre" 
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+            title="Nombre solo acepta letras y espacios en blanco" required>
+            <br>
+            <input type="email" name="correo" placeholder="Escribe tu correo"
+            pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$)"
+            title="Formato de correo invalido" required>
+            <br>
+            <textarea name="comentarios" placeholder="Escribe tus comentarios" cols="30" rows="10">
+
+            </textarea>
+            <br>
+            <input type="submit">
+        </form>
+
+        <pre><code>
+        &ltform action="https://formsubmit.co/su@email.com" method="post"&gt
+            &ltinput type="text" name="nombre" placeholder="Escribe tu nombre" 
+            pattern="^[A-Za-zÑñÁáÉéÍíÓóÚúÜü\s]+$"
+            title="Nombre solo acepta letras y espacios en blanco" required&gt
+        
+            &ltinput type="email" name="correo" placeholder="Escribe tu correo"
+            pattern="^(\w+[/./-]?){1,}@[a-z]+[/.]\w{2,}$)"
+            title="Formato de correo invalido" required&gt
+            
+            &lttextarea name="comentarios" placeholder="Escribe tus comentarios" cols="30" rows="10"&gt
+            &lt/textarea&gt
+
+            &ltinput type="submit"&gt
+        &lt/form&gt
+        </code></pre>
+
+    </article>
+    <!-- 3. metodologias css----------------------------------------------->
+    <article>
+        <h3 id="3">3.Metodologias CSS</h3>
+        <p>Estas metodologias no son reglas extrictas a seguir icluso se podrian tomar lo mejor de cada una <b>EL objetivo es tener orden y escalabilidad</b></p>
+        <br>
+
+        <h4 id="3.1">3.1.BEM</h4>
+        <p>consite en pensar el boques , un header es un codigo y los elementos dentro de el 
+            son hijos del bloque <a href="https://en.bem.info/methodology/css/">en.bem.info</a>
+        <br>un pequeño problema que puede ver con BEM es que las clases se pueden hacer muy largas y engorosas</p>
+
+        <h4 id="3.2">3.2.SMACSS</h4>
+        <p>Propone separar el codigo por capas <i>1.bases - 2.layout - 3.modulos - 4.estados - 5.temas - 6.cambios - 7.estilos propios</i> <a href="http://smacss.com/">smacss.com</a></p>
+
+        <h4 id="3.3">3.3.OOCSS</h4>
+        <p>CSS orientado a objetos <a href="http://oocss.org/">oocss.org</a></p>
+
+        <h4 id="3.4">3.4.ITCSS</h4>
+        <p>Documentación<a href="itcss.io">itcss.io</a></p>
+
+        <h4 id="3.5">3.5.AMCSS</h4>
+        <p>N/A</p>
+
+        <h4 id="3.6">3.6.SUIT.CSS</h4>
+        <p></p>
+
+        <h4 id="3.7">3.7.Atomic design</h4>
+        <p>mejor revisar la pagina <a href="https://bradfrost.com/blog/post/atomic-web-design/">bradfrost.com/blog/post/atomic-web-design/</a></p>
+    </article>
+</main>
+</body>
+</html>

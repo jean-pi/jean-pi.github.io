@@ -1,0 +1,239 @@
+h1 {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+}
+
+h2, h4, h3, div {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+p {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 25px 0 25px 0;
+}
+
+article {
+  margin: auto;
+  padding-top: 1vh;
+  max-width: 1024px;
+}
+
+code {
+  display: block;
+  border-radius: 10px;
+  max-width: 100%;
+  height: auto;
+  background-color: #e6e6e6;
+  overflow-x: auto;
+}
+
+ul {
+  font-family: Arial, Helvetica, sans-serif;
+  list-style: none;
+  font-size: 13px;
+}
+ul li {
+  margin: 5px;
+}
+
+.table {
+  border-collapse: collapse;
+}
+.table tr th {
+  border: 1px solid rgba(0, 0, 0, 0.411);
+  padding: 10px;
+  background-color: rgb(243, 243, 243);
+}
+.table tr td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+[class^=box] {
+  /* [class^="box"]todas las clases que empiezen con "box" */
+  background-color: blueviolet;
+  margin: 1rem 0;
+}
+
+.box-flexible {
+  width: 100%;
+  height: 10vh;
+}
+
+.box-flexible_2 {
+  max-width: 760px;
+  min-width: 280px;
+  max-height: 100px;
+  min-height: 60px;
+  background-color: chocolate;
+  /* width: 90%;
+  height: 10%; */
+  /** no puedo colocar un width ni height especifico esto anularia los max y min**/
+}
+
+/*
+- MEDIDAS ABSOLUTAS mm,cm,in,pc
+- MEDIDAS RELATIVAS em,rem,ex,px
+- PORCENTAGES %
+- MEDIDAS DEL VIEWPORT vh,vw
+*/
+img, audio, video, iframe, canvas, svg, picture {
+  max-width: 100%;
+  height: auto;
+}
+
+.iframe_Aspect_Ratio {
+  aspect-ratio: 16/9;
+}
+
+.googleMaps_aspectRatio_cuadrado {
+  aspect-ratio: 1/1;
+}
+
+.div_pruebaPicture {
+  max-width: 300px;
+  min-width: 100px;
+  height: auto;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  html {
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+  }
+  html .table tr th {
+    border: 1px solid rgb(255, 255, 255);
+  }
+  html .table tr td {
+    border: 1px solid rgb(255, 255, 255);
+  }
+  html code {
+    color: rgb(0, 0, 0);
+  }
+}
+@media print {
+  @page {
+    size: A6;
+  }
+  body {
+    color: rgb(73, 154, 224);
+  }
+}
+@media screen and (min-width: 10000px) {
+  html {
+    background-color: palevioletred;
+  }
+}
+@media screen and (max-width: 0px) {
+  html {
+    background-color: cadetblue;
+  }
+}
+@supports not (grid-template-columns: subgrid) {
+  .pruebaFeatureQuerie::first-letter {
+    font-size: 1.5em;
+    color: rgb(36, 106, 238);
+  }
+}
+.desktop-monile-fisrt {
+  display: flex;
+}
+.desktop-monile-fisrt div {
+  padding: 1vw 6vw 1vw 1vw;
+}
+.desktop-monile-fisrt div img {
+  min-width: 100%;
+  height: auto;
+}
+
+.gridFluida-container {
+  margin: auto;
+  background-color: rgb(31, 31, 31);
+  padding: 20px;
+  border-radius: 10px;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-auto-rows: 15rem;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 10rem), 1fr));
+}
+.gridFluida-container div {
+  background-color: rgb(45, 196, 196);
+  margin: 5px;
+  border-radius: 10px;
+  padding: 10px;
+}
+.gridFluida-container .gridFluida-2 {
+  grid-column: span 2;
+}
+.gridFluida-container .gridFluida-4 {
+  grid-column: span 2;
+}
+.gridFluida-container .gridFluida-7 {
+  grid-column: span 2;
+}
+
+/* @link https://utopia.fyi/type/calculator?c=320,21,1.2,1024,24,1.25,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l */
+:root {
+  --step--2: clamp(0.91rem, calc(0.89rem + 0.11vw), 0.96rem);
+  --step--1: clamp(1.09rem, calc(1.05rem + 0.24vw), 1.20rem);
+  --step-0: clamp(1.31rem, calc(1.23rem + 0.43vw), 1.50rem);
+  --step-1: clamp(1.58rem, calc(1.44rem + 0.68vw), 1.88rem);
+  --step-2: clamp(1.89rem, calc(1.68rem + 1.03vw), 2.34rem);
+  --step-3: clamp(2.27rem, calc(1.97rem + 1.50vw), 2.93rem);
+  --step-4: clamp(2.72rem, calc(2.29rem + 2.14vw), 3.66rem);
+  --step-5: clamp(3.27rem, calc(2.67rem + 2.98vw), 4.58rem);
+}
+
+.textoFluidoContainer {
+  border: 2px solid black;
+  padding: 2%;
+}
+
+.step--2 {
+  font-size: var(--step--2);
+}
+
+.step--1 {
+  font-size: var(--step--1);
+}
+
+.step-0 {
+  font-size: var(--step-0);
+}
+
+.step-1 {
+  font-size: var(--step-1);
+}
+
+.step-2 {
+  font-size: var(--step-2);
+}
+
+.step-3 {
+  font-size: var(--step-3);
+}
+
+.step-4 {
+  font-size: var(--step-4);
+}
+
+.step-5 {
+  font-size: var(--step-5);
+}
+
+.cajaFluida {
+  width: clamp(360px, 60vw, 600px);
+  height: clamp(180px, 30vw, 300px);
+  background-color: burlywood;
+  margin: auto;
+}
+
+/*
+* globlals
+*/
+/*
+* temas de responive design
+*/
+
+/*# sourceMappingURL=index.css.map */

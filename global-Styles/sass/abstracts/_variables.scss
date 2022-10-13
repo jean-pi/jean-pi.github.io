@@ -1,0 +1,32 @@
+
+    $blanco:#ffffff;//los diferentes tonos de blanco seran opacados con una funcion
+    $negro:#202124;//solo hay un tono de negro en toda la web
+    $mostaza:#f6bd41;
+    $mostaza_dark:#facf59;
+    $azul:#538ff7;
+    $azul_dark: #76b4fa;
+    $rojo: #EC5E4F;
+    $verde:#65B867;
+.theme{
+    --color_blanco: #{$blanco};
+    --color_negro: #{$negro};
+    --color_mostaza: #{$mostaza};
+    --color_azul: #{$azul};
+    --color_rojo: #{$rojo};
+    --color_verde: #{$verde};
+}
+.theme-dark{
+    --color_blanco: #{$negro};
+    --color_negro: #{$blanco};
+    --color_mostaza: #{$mostaza_dark};
+    --color_azul: #{$azul_dark};
+    --color_rojo: #{$rojo};
+    --color_verde: #{$verde};
+}
+@font-face {font-family:google-sans1 ;src: url(/assets/fonts/google-sans-Light.woff) format("woff");}
+@font-face {font-family:google-sans2 ;src: url(/assets/fonts/google-sans-Thin.woff) format("woff");}
+@font-face {font-family: google-sans-display;src: url(/assets/fonts/GoogleSansDisplay-Medium.woff) format("woff");}
+
+
+
+

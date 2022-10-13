@@ -1,0 +1,19 @@
+// imagenes flexibles--------------------------------
+
+img,audio,video,iframe,canvas,svg,picture{
+    max-width: 100%;
+    height: auto;
+    // con estos todos se vuelven flexibles
+}
+.iframe_Aspect_Ratio{
+    aspect-ratio: 16/9;
+}
+.googleMaps_aspectRatio_cuadrado{
+    aspect-ratio: 1/1;
+}
+.div_pruebaPicture{
+    max-width: 300px;
+    min-width: 100px;
+    height: auto;
+}
+

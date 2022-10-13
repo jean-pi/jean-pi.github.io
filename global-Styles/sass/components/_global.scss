@@ -1,0 +1,41 @@
+main{
+    max-width: 1640px
+}
+body{
+    background-color: var(--color_blanco);
+}
+//breakpoint sencillo pero funcionadon
+    // 0px/0em - 480px/30em celular
+    // 481px/30.063em — 768px/48em: iPads, Tablets
+    // 480px/30em - 960px/60em tablet
+    // 960px/60em - 1328px/83em ordenador
+
+//breakpoint completos (!aveces no es nesearios tantos breakpoints)
+    // 0px - 320px movil pequeño
+    // 320px - 480px movil grande
+    // 480px - 768px tablet pequeña
+    // 768px - 960px tabled grande
+    // 960px - 1024px ordenador normal
+    // 1024px - 1328px ordenador ultra wide
+
+h3{
+    font-family: google-sans1, sans-serif;
+    font-size: 2rem;
+    color: var(--color_negro);
+    padding: 1rem 1rem .5rem 1rem;
+}
+h2{
+    font-size: 1.50rem;
+    font-family:google-sans1, sans-serif;
+    white-space: nowrap;
+    color: var(--color_negro);
+}
+//google icons
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 300,
+    'GRAD' 0,
+    'opsz' 40
+}
+
