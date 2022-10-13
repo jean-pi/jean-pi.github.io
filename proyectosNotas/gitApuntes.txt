@@ -17,7 +17,7 @@ $ git config -h  // opciones configuracion
  // se crear una rama para trabajar aparte y una vez que el codigo este probado y terminado
  se hace un  MERCH para unir esa rama a la principal
  $ git branch // rama actual de TRABAJO
- $ git checkout -b rama1 // crear rama y cambiarse a esa rama
+ $ git checkout -b ramab // crear rama (-b) , sin (-b) solo cambia de rama
 // solo se hace el commit en la rama en la que estoy si cambio de rama y veo otra vez el codigo con $ cat {}
 // no aparece el cambio
 
