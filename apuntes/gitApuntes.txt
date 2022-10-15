@@ -70,3 +70,8 @@ $ git vm {nombredearchivo.txt} {nuevoNombredearchivo.txt} //cambia de nombre y s
 // las rutas dentro de este no se veran en los cambios 
 // hay que subir el .gitingnore add y commit
 
+// push
+$ git remote add origin htpps:repositoriogithub
+$ git push -u origin main // la primera vez: -u se crea una rama , origin donde sera creada, master nombre de la ramma
+// esto es para crear la rama en github
+//LUEGO PIDE USUARIO Y TOKEN DE ACCESO : el token esta en github.com   , settings/developer settings 
