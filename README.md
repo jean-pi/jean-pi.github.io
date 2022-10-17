@@ -3,8 +3,7 @@
 
 1 dos sumero y que diga cual es el mayor menor y si son iguales
 2 que muestre todo los numeros entre dos numeros introducidos
-3 mostrar todos los numeros impares que hay entr dos muneros instroducidos por el usuario
-4 mostar todos los numeros divisores de un numero
+3 mostrar todos los numeros impares que hay entre dos numeros introducidos por el usuario
 5 mostrar si los numeros on pares o impares 
 6 calculadora que pida dos numeros
 
