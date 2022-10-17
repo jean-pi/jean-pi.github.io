@@ -14,11 +14,9 @@ export function topScroll(nodoButton,claseMuestraButton){
 
     document.addEventListener("click", (e)=>{
         if(e.target.matches(nodoButton)){
-            // window.scroll(0,0)
             window.scrollTo({
                 vehavior:"smooth",
                 top:0,
-                // letf:0
             })
         }
     })

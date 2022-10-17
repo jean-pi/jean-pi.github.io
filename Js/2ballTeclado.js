@@ -6,9 +6,7 @@ export function ballMovimiento (e,ball,ballContainer){
             $ContainerBall = document.querySelector(ballContainer),
             ballLimit = $ball.getBoundingClientRect(),
             containerLimit = $ContainerBall.getBoundingClientRect();
-            //El método Element.getBoundingClientRect() devuelve el tamaño de un elemento y su 
-            //posición relativa respecto a la ventana de visualización (viewport).
-            
+
     switch (e.keyCode) {
         case 38:
             // up
@@ -16,7 +14,6 @@ export function ballMovimiento (e,ball,ballContainer){
             if(ballLimit.top > containerLimit.top){
                 y--;
                 e.preventDefault()
-                // el preventDefault es para que se cancele el evento de subir que tienen la tecla up
             }
         break;
         case 40:

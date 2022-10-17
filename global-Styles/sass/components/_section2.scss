@@ -2,7 +2,9 @@
 
 .section2{
     height: 100vh;
+    max-height: 45rem;
     display: flex;
+    margin-bottom: 10rem;
     flex-direction: column;
     // <h3> global.scss
     &-contenido{
@@ -12,6 +14,35 @@
         grid-template-rows: auto auto auto;
         gap: .6rem .6rem;
         padding: .5rem 1rem 1rem 1rem ;
+        @media (min-width:48em) { // 768px
+                grid-template-columns: 35% 65%;
+                grid-template-rows: 20% 20% 20% 20% 20% 20%;
+    
+                &-windowTester{
+                    grid-column-start:1;
+                    grid-column-end: 2;
+                    grid-row-start: 1;
+                    grid-row-end: 4;
+                }
+                &-estadoDeRed{
+                    grid-column-start: 1;
+                    grid-column-end: 2;
+                    grid-row-start: 4;
+                    grid-row-end: 6;
+                }
+                &-userAgent{
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+                    grid-row-start: 1;
+                    grid-row-end: 3;
+                }
+                &-twoNumbers{
+                    grid-column-start: 2;
+                    grid-column-end: 3;
+                    grid-row-start: 3;
+                    grid-row-end: 6;
+                }
+        }
         &-windowTester{
             @include predesigns.cuadricula_elements(var(--color_mostaza),#202124,#202124);
             display: flex;
@@ -45,7 +76,7 @@
                             border: 1px solid black;
                             background-color: rgb(255, 255, 255);
                             &:hover{
-                                background-color: rgb(246, 246, 246);
+                                background-color: rgb(236, 236, 236);
                             }
                         }
                     }
@@ -61,7 +92,7 @@
                 display: flex;
                 justify-content: center;
                 &-svg{
-                    max-width: 50%;
+                    max-width: 40%;
                 }
             }
         }
@@ -83,24 +114,39 @@
                 }
             }
         }
-    }
-    @media (min-width:48em) { // 768px
-        &-contenido{
-            grid-template-columns: 35% 65%;
-            grid-template-rows: 60% 40%;
+        &-twoNumbers{
+            @include predesigns.cuadricula_elements(#202124,#ffffff,var(--color_negro));
+            &-container{
+                &-form{
+                    &-textInput{
+                        margin:.5rem .2rem;
+                        padding: 0 1rem ;
+                        height: 2.5rem;
+                        border-radius: 7px;
+                        border: none;
+                        font-family:google-sans1, sans-serif;
+                    }
+                    &-buttonInput{
+                        font-family:google-sans1, sans-serif;
+                        margin: .5rem .2rem;
+                        padding: .6rem 1rem;
+                        border-radius: 7px;
+                        border: 1px solid var(--color_negro);
+                        background-color: rgb(255, 255, 255);
+                        &:hover{
+                            background-color: rgb(228, 228, 228);
+                        }
+                    }
+                }
+                &-resultadoView{
 
-            &-estadoDeRed{
-                grid-column-start: 2;
-                grid-column-end: 3;
-                grid-row-start: 1;
-                grid-row-end: 3;
+                }
+            }
+        }&-form{
+            &-textInput{
+
             }
         }
-    }
-}
-@media (min-height:64rem) { // 1024px
-    .section2{
-        max-height: 45rem
     }
 }
 

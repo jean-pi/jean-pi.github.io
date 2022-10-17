@@ -24,9 +24,7 @@ export function nightMode (nightMode_btn){
         }
     })
 
-    // local storage es un objeto donde se puede guardar informacion se peude guardar hasta 5mb de infomarcion
     document.addEventListener("DOMContentLoaded", (e) => {
-        //si escuatra una variable llamada "theme" en el localStorage
         if(localStorage.getItem("theme") === null) localStorage.setItem("theme","light");
         if(localStorage.getItem("theme") === "light") lightMode();
         if(localStorage.getItem("theme") === "dark") darkMode();
