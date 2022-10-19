@@ -2,11 +2,45 @@
 @use "../abstracts/predesigns";
 
 .section1{
-    height: 100vh;
+    @media (min-height:64rem) { // 1024px
+            max-height: 45rem
+    }
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     // <h3> global.scss
     &-contenido{
+        @media (min-width:48em) { // 768px
+            grid-template-columns: 32% 68%;
+            grid-template-rows: 75% 25%;
+
+            &-relojAnalogico{
+                &-container{
+                    &-circle{
+                        width: 14rem;
+                        height: 14rem;
+                        &-hours{
+                            width: 5rem;
+                            height: .50rem;
+                        }
+                        &-minutes{   
+                            width: 6rem;
+                            height: .40rem;
+                        }
+                        &-seconds{   
+                            width: 6.7rem;
+                            height: .25rem;
+                        }
+                    }
+                }
+            }
+            &-eventTeclado{
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 1;
+                grid-row-end: 3;
+            }
+        }
         flex: 1;
         display: grid;
         grid-template-columns: 100%;
@@ -121,56 +155,6 @@
             }
         }
     }
-    @media (min-width:48em) { // 768px
-        &-contenido{
-            grid-template-columns: 32% 68%;
-            grid-template-rows: 75% 25%;
 
-            &-relojAnalogico{
-                &-container{
-                    &-circle{
-                        width: 14rem;
-                        height: 14rem;
-                        &-hours{
-                            width: 5rem;
-                            height: .50rem;
-                        }
-                        &-minutes{   
-                            width: 6rem;
-                            height: .40rem;
-                        }
-                        &-seconds{   
-                            width: 6.7rem;
-                            height: .25rem;
-                        }
-                    }
-                }
-            }
-            &-eventTeclado{
-                grid-column-start: 2;
-                grid-column-end: 3;
-                grid-row-start: 1;
-                grid-row-end: 3;
-            }
-        }
-    }
-}
-@media (min-height:64rem) { // 1024px
-    .section1{
-        max-height: 45rem
-    }
-}
-
-.section2{
-    height: 100vh
-}
-.section1-windowTester{
-    @include predesigns.cuadricula_elements(var(--color_mostaza),#202124,#202124);
-}
-.section1-userAgent{
-    @include predesigns.cuadricula_elements(#202124,rgb(255, 255, 255),var(--color_negro));
-}
-.section1-estadoDeRed{
-    @include predesigns.cuadricula_elements(var(--color_azul),#202124,#202124);
 }
 

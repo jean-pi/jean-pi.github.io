@@ -1,21 +1,53 @@
 @use "../abstracts/predesigns";
 
 .section3{
-    height: 100vh;
-    max-height: 45rem;
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     // <h3> global.scss
+    @media (min-height:64rem) { // 1024px
+        max-height: 45rem
+    }
     &-contenido{
         flex: 1;
         display: grid;
         grid-template-columns: 100%;
-        grid-template-rows: auto auto auto;
+        grid-template-rows: auto auto;
         gap: .6rem .6rem;
         padding: .5rem 1rem 1rem 1rem ;
         @media (min-width:48em) { // 768px
-                grid-template-columns: 35% 65%;
-                grid-template-rows: 20% 20% 20% 20% 20% 20%;
+                grid-template-columns: 65% 35%;
+                grid-template-rows: 1/2fr 1/2fr;
+        }
+        &-arrayOperation{
+            @include predesigns.cuadricula_elements(var(--color_mostaza),#202124,#202124);
+            &-container{
+                &-form{
+                    &-textInput{
+                        margin: .4rem 0 ;
+                        text-align: center;
+                        width: 2.4rem;
+                        height: 3.1rem;
+                        border-radius: 7px;
+                        border: none;
+                        font-family:google-sans1, sans-serif;
+                    }
+                    &-buttonInput{
+                        font-family:google-sans1, sans-serif;
+                        margin: .5rem .2rem;
+                        padding: .6rem 1rem;
+                        border-radius: 7px;
+                        border: 1px solid var(--color_negro);
+                        background-color: rgb(255, 255, 255);
+                        &:hover{
+                            background-color: rgb(228, 228, 228);
+                        }
+                    }
+                }
+                &-resultadosView{
+
+                }
+            }
         }
     }
 }

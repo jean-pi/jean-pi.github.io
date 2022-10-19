@@ -1,12 +1,13 @@
 @use "../abstracts/predesigns";
 
 .section2{
-    height: 100vh;
-    max-height: 45rem;
+    min-height: 100vh;
     display: flex;
-    margin-bottom: 10rem;
     flex-direction: column;
     // <h3> global.scss
+    @media (min-height:64rem) { // 1024px
+        max-height: 45rem
+    }
     &-contenido{
         flex: 1;
         display: grid;
@@ -16,7 +17,7 @@
         padding: .5rem 1rem 1rem 1rem ;
         @media (min-width:48em) { // 768px
                 grid-template-columns: 35% 65%;
-                grid-template-rows: 20% 20% 20% 20% 20% 20%;
+                grid-template-rows: 1/5fr 1/5fr 1/5fr 1/5fr 1/5fr 1/5fr;
     
                 &-windowTester{
                     grid-column-start:1;
@@ -138,13 +139,12 @@
                         }
                     }
                 }
-                &-resultadoView{
-
+                &-resultadosView{
+                    &-p{
+                        word-wrap: break-word;
+                        width: 300px;
+                    }
                 }
-            }
-        }&-form{
-            &-textInput{
-
             }
         }
     }

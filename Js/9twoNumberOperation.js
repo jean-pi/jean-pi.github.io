@@ -4,6 +4,7 @@ export default function operacionesConDosNumeros(idForm,idContentView){
     const $form = document.querySelector(idForm);
     const $contentView = document.querySelector(idContentView);
 
+    console.log($form)
     function numeroMayorMenor(num1,num2){
         if(num1 < num2 ){
             let result = {
@@ -43,7 +44,6 @@ export default function operacionesConDosNumeros(idForm,idContentView){
         return imparParObj;
     }
 
-
     document.addEventListener("submit", (e) =>{
         if(e.target.matches(idForm)){
             e.preventDefault();
@@ -75,13 +75,13 @@ export default function operacionesConDosNumeros(idForm,idContentView){
                 imparEntreNum1Num2Result.push("....");
             }
 
-            $contentView.innerHTML = `
-            <p class="section3-contenido-twoNumbers-resultadosView-p">Numero mayor: ${numeroMayor}</p>
-            <p class="section3-contenido-twoNumbers-resultadosView-p">Numero menor: ${numeroMenor}</p>
-            <p class="section3-contenido-twoNumbers-resultadosView-p">Numeros entre ${num1} y ${num2}: [${numEntreNum1Num2Result}]</p>
-            <p class="section3-contenido-twoNumbers-resultadosView-p">Numeros impares entre ${num1} y ${num2}: [${imparEntreNum1Num2Result}] </p>
-            <p class="section3-contenido-twoNumbers-resultadosView-p">${num1} es: ${num1IsparIsimpar} </p>
-            <p class="section3-contenido-twoNumbers-resultadosView-p">${num2} es: ${num2IsparIsimpar}</p>
+            $contentView.innerHTML = ` 
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">Numero mayor: ${numeroMayor}</p>
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">Numero menor: ${numeroMenor}</p>
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">Numeros entre ${num1} y ${num2}: [${numEntreNum1Num2Result}]</p>
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">Numeros impares entre ${num1} y ${num2}: [${imparEntreNum1Num2Result}] </p>
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">${num1} es: ${num1IsparIsimpar} </p>
+            <p class="section2-contenido-twoNumbers-container-resultadosView-p">${num2} es: ${num2IsparIsimpar}</p>
             `;
         }
     })
