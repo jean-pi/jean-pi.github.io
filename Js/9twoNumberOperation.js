@@ -4,32 +4,37 @@ export default function operacionesConDosNumeros(idForm,idContentView){
     const $form = document.querySelector(idForm);
     const $contentView = document.querySelector(idContentView);
 
-    console.log($form)
     function numeroMayorMenor(num1,num2){
+        let result = {
+            numMayor : "",
+            numMenor : ""
+        }
         if(num1 < num2 ){
-            let result = {
-                numMayor : num2,
-                numMenor : num1
-            }
+            result.numMayor = num2;
+            result.numMenor = num1;
             return result;
         } 
         if(num1 > num2 ){
-            let result = {
-                numMayor : num1,
-                numMenor : num2
-            }
+            result.numMayor = num1;
+            result.numMenor = num2;
+            return result;
+        }
+        if(num1 === num2){
+            result.numMayor = "numeros iguales";
+            result.numMenor = "numeros iguales";
             return result;
         }
     }
     function numerosEntreNum1Num2(num1,num2){
         let numEntreNum1Num2Arr = [];
-        for(let i = numeroMayorMenor(num1,num2).numMenor+1; i < numeroMayorMenor(num1,num2).numMayor; i++){
-            numEntreNum1Num2Arr.push(i);
-        }
+        if(num1 === num2){numEntreNum1Num2Arr = []; return numEntreNum1Num2Arr;}
+        for(let i = numeroMayorMenor(num1,num2).numMenor+1; i < numeroMayorMenor(num1,num2).numMayor; i++){ numEntreNum1Num2Arr.push(i); }
         return numEntreNum1Num2Arr;
     }
     function numeroIparEntreNum1Num2(arr){ 
-        let numImpares = arr.filter(number => number % 2 === 1)
+        let numImpares;
+        if(arr.length === 0){numImpares = []; return numImpares}
+        numImpares = arr.filter(number => number % 2 === 1)
         return numImpares;
     }
     function isParIsImpar(num1,num2){
@@ -46,18 +51,15 @@ export default function operacionesConDosNumeros(idForm,idContentView){
 
     document.addEventListener("submit", (e) =>{
         if(e.target.matches(idForm)){
+
             e.preventDefault();
+
             let num1 = parseFloat($form.primerNumero.value);
             let num2 = parseFloat($form.segundoNumero.value);
 
-            if($form.primerNumero.value.includes(`,`)){
+            if(isNaN(num1) || isNaN(num2) || !Number.isInteger(num1) || !Number.isInteger(num2) || $form.primerNumero.value.includes(`,`) || $form.primerNumero.value.includes(`-`)){
                 return $contentView.innerHTML = "solo se aceptan valores numericos enteros";
             }
-            if(isNaN(num1) || isNaN(num2) || !Number.isInteger(num1) || !Number.isInteger(num2)){
-                return $contentView.innerHTML = "solo se aceptan valores numericos enteros";
-            }
-            if(num1 === num2){return $contentView.innerHTML= `invalido valores iguales : ${num1} = ${num2} son iguales`}
-
 
             let numEntreNum1Num2Result = numerosEntreNum1Num2(num1,num2);
             let imparEntreNum1Num2Result = numeroIparEntreNum1Num2(numEntreNum1Num2Result);
@@ -66,11 +68,10 @@ export default function operacionesConDosNumeros(idForm,idContentView){
             let num1IsparIsimpar = isParIsImpar(num1,num2).num1;
             let num2IsparIsimpar = isParIsImpar(num1,num2).num2;
 
-            if(numEntreNum1Num2Result.length >= 30){
+            
+            if(numEntreNum1Num2Result.length >= 30 || imparEntreNum1Num2Result.length >= 30){
                 numEntreNum1Num2Result =  numEntreNum1Num2Result.slice(0,30);
                 numEntreNum1Num2Result.push("....");
-            }
-            if(imparEntreNum1Num2Result.length >= 30){
                 imparEntreNum1Num2Result =  imparEntreNum1Num2Result.slice(0,30);
                 imparEntreNum1Num2Result.push("....");
             }
@@ -85,5 +86,5 @@ export default function operacionesConDosNumeros(idForm,idContentView){
             `;
         }
     })
+}
 
-} 

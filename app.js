@@ -8,6 +8,7 @@ import ventanaUlr from "./Js/6ventanaUlr.js";
 import detencionDeDispositivos from "./Js/7userAgent.js";
 import estadoDeRed from "./Js/8estadoDeRed.js";
 import operacionesConDosNumeros from "./Js/9twoNumberOperation.js";
+import arrayOperation from "./Js/10arrayOperation.js"
 
 document.addEventListener("DOMContentLoaded", ()=>{
     hamburgerMenu("#menuLateralActive","#panel","panel-is_active")
@@ -19,6 +20,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     detencionDeDispositivos("#divUserAgent")
     estadoDeRed("#onlineOflineDiv")
     operacionesConDosNumeros("#formTwoNumbersOperation","#contentViewTwoNumbersOperation")
+    arrayOperation("#formArrayOperation","#contentViewArrayOperation")
 })
 nightMode("#nightMode-btn")// afuera porque ya tiene un "DOMContentLoaded"
 
