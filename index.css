@@ -1,0 +1,137 @@
+
+body{
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 3rem;
+}      
+
+header{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 9rem 0 7rem;
+}
+
+main{
+    margin: 0 9rem 0 7rem;
+}
+
+.p1{
+    font-family: monospace;
+    margin: .2rem 0;
+    font-size: 1rem;
+}
+
+.p2{
+    font-family: monospace, sans-serif;
+    margin-top: .3rem;
+    font-size: .8rem;
+}
+
+h1{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: -1px;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+h2{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    letter-spacing: -1px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0 ;
+    padding: 0;
+    font-size: 1.4rem;
+}
+
+.colm2_img{
+    width: 7rem;
+    border-radius: 10px;
+    margin-top: 3rem;
+}
+
+.action{
+    height: 1.5rem;
+    display: inline-block;
+    margin-bottom: .4rem;
+    margin-right: 1rem;
+    border-radius: 5px;
+    padding: .15rem;
+}
+
+.action img{
+
+}
+.action a{
+    color: black;
+    font-family: monospace,sans-serif;
+    font-size: .8rem;
+    position: relative;
+    bottom: .4rem;
+}
+.action p{
+    color: black;
+    font-family: monospace,sans-serif;
+    font-size: .8rem;
+    position: relative;
+    bottom: .4rem;
+}
+
+
+
+.descargar{
+    border: 1px solid black;
+    padding: .3rem .6rem;
+    display: inline-block;
+    border-radius: 7px;
+
+    color: black;
+    font-family: monospace, sans-serif;
+    letter-spacing: -1px;
+    font-size: .9rem;
+}
+
+
+
+.proyecto img{
+    border: 1px solid rgba(0, 0, 0, 0.692);
+    filter: opacity(90%);
+}
+.proyecto {
+    text-decoration: none;
+}
+
+.textoProyecto{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 1.1rem;
+    position: relative;
+    left: -19.4rem;
+    top: -1.1rem;
+    margin-left: .6rem;
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    background-color: rgb(0, 0, 0);
+    padding: .5rem;
+}
+
+
+.cursos{
+    text-decoration: none;
+    display: block;
+}
+
+.cursos img{
+    max-width: 310px;
+}
+
+.cursos p{
+    font-family: monospace, sans-serif;
+    margin: 0 0 0 .3rem;
+}
+
+
+
+
+
