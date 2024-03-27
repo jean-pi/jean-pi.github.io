@@ -8,11 +8,11 @@ body{
 header{
     display: flex;
     justify-content: space-between;
-    margin: 0 9rem 0 7rem;
+    margin: 0 3rem 0 2rem;
 }
 
 main{
-    margin: 0 9rem 0 7rem;
+    margin: 0 3rem 0 2rem;
 }
 
 .p1{
